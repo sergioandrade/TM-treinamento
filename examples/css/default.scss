@@ -1,0 +1,161 @@
+/*
+*  html5 doctor css reset | http://html5doctor.com/html-5-reset-stylesheet
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+
+/**
+ * TOOLS 
+ **/
+* html>body .clearfix {
+    display: inline-block;
+    width: 100%;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.top10{
+    margin-top: 10px;
+}
+.top40{
+    margin-top: 40px;
+}
+.p40{
+    padding: 40px;
+}
+
+.left10{
+    margin-left: 10px;
+}
+.block{
+    display: block;
+    float: left;
+}
+.row{
+    float: left;
+    width: 100%;
+}
+
+$fonte: "Trebuchet ms";
+
+$branco: #fff;
+$cinza: #dedede;
+$preto: #333;
+
+//Variaveis para converter as fontes em EM
+$f12: 0.75em;
+$f14: 0.875em;
+$f24: 1.6em;
+
+body{
+    background: $cinza;
+    font-family: $fonte;
+    padding-top: 60px;
+    font-size: 100%;//16px;
+}
+.main{
+    @extend .p40;
+    @extend .clearfix;
+    margin: 0 auto;
+    width: 880px;
+    // width: 80%;
+    height: auto;
+    box-shadow: 0 -10px 12px 12px rgba(12,12,12,0.1) ;
+    background: $branco;
+}
+
+.header{
+    @extend .row;
+    background:$preto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 60px;
+}
+
+
+
+/* Menu com 4 níveis, hover e Before  */
+.menu{
+    @extend .row;
+    ul{
+        @extend .block;
+        li{
+            @extend .block;
+                /*Quando a largura máxima for 630px*/
+                // @media only screen and (max-width : 630px){
+                //     width: 100%;
+                //     background: $preto;
+                // };
+            a{
+                @extend .block;
+                color: $branco;
+                padding: 0 40px;
+                height: 60px;
+                text-decoration: none;
+                position: relative;
+                line-height: 60px;
+                // @media only screen and (max-width : 630px){
+                //     width: 100%;
+                //    &:before{
+                //         display: none;
+                //    }
+                // };
+                &:before {
+                    content: " ";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 50%;
+                    margin-left: -5px;
+                    height: 10px;
+                    width: 10px;
+                    background: $preto;
+                    -webkit-transform: rotate(45deg); 
+                };
+                &:hover{
+                        background: lime;
+                        color: $preto;
+                     &:before {
+                        background: inherit;
+                     }
+                };
+            }
+        }
+    }
+}
+
+/* Posso usar as classes como no css normal */
+.titulo{
+    font-size: $f24;
+}
+.main{
+    section{
+            @extend .block;
+        article{
+            @extend .top10,.block;
+            width: 680px;
+        }
+        aside{
+            @extend .block;
+            width: 200px;
+        }
+    }
+    
+}
